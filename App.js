@@ -1,20 +1,44 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+/*- Scenes -*/
+import Home from "./scenes/Home";
+import Search from "./scenes/Search";
+
+/*- Create the stack navigator -*/
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+	
+	return(
+		<React.Fragment>
+			<NavigationContainer>
+				<Stack.Navigator>
+					<Stack.Screen name="Home" component={Home} />
+					<Stack.Screen name="Search" component={Search} />
+				</Stack.Navigator>
+			</NavigationContainer>
+		</React.Fragment>
+	)
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+
+/* To Do:
+
+ - Add styling + icons to the footer
+ - Add the header
+ - Add functional search bar in array (perhaps usage of Spotify API to search)
+ - Top Songs / Playlists in home screen
+
+ = Frontend Account Login =
+ - Add login scene
+ - Handle Spotify authentication requests and responses
+ - Add user data to local storage
+ - Display Users data (such as Favored Songs, Playlists incl. and favorable Owned) in home screen
+ - Add functionality to add songs to favorites
+ - Get user or playlist data from Spotify API to determine specifics (Beat, Tempo, Instrumentalism, etc.)
+
+ */
