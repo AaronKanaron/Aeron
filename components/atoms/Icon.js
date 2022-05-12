@@ -1,6 +1,7 @@
 import React from "react";
 
 import { default as IonIconsLib } from "react-native-vector-icons/Ionicons";
+import { default as MaterialCommunityIconsLib } from "react-native-vector-icons/MaterialCommunityIcons";
 import { TouchableOpacity } from "react-native";
 
 /*
@@ -22,8 +23,24 @@ export class IonIcons extends React.PureComponent{
 	}
 	
 	render(){
-		<TouchableOpacity activeOpacity={Default.aOpc} onPress={()=>this.props.onPress && this.props.onPress()}>
-			<IonIconsLib size={Default.size} color={Default.color} {...this.props} name={this.name} />
-		</TouchableOpacity>
+		return(
+			<TouchableOpacity activeOpacity={Default.aOpc} onPress={()=>this.props.onPress && this.props.onPress()}>
+				<IonIconsLib size={Default.size} color={Default.color} {...this.props} name={this.name} />
+			</TouchableOpacity>
+		)
+	}
+}
+export class MCIcons extends React.PureComponent{
+	constructor(props){
+		super(props);
+		this.name = this.props.name
+	}
+	
+	render(){
+		return(
+			<TouchableOpacity activeOpacity={Default.aOpc} onPress={()=>this.props.onPress && this.props.onPress()}>
+				<MaterialCommunityIconsLib size={Default.size} color={Default.color} {...this.props} name={this.name} />
+			</TouchableOpacity>
+		)
 	}
 }
